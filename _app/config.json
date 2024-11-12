@@ -8,9 +8,9 @@
 
   "database": {
     "host": "localhost",
-    "database": "",
-    "username": "",
-    "password": ""
+    "database": "u683328808_escritorio_db",
+    "username": "u683328808_escritorio_db",
+    "password": "2|PkQj0^YX"
   },
   "email": {
     "MAILUSER": "",
