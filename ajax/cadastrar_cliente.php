@@ -128,7 +128,8 @@ try {
                         throw new Exception('O arquivo é muito grande. O tamanho máximo permitido é 5MB.');
                     }
 
-                    $uploadDir = "../app/uploads/pdf/";
+                    $dir = '/app/uploads/pdf/';
+                    $uploadDir = "..". $dir;
                     // Garantir que o diretório exista
                     if (!is_dir($uploadDir)) {
                         mkdir($uploadDir, 0777, true);
@@ -146,7 +147,7 @@ try {
                             ':nome_arquivo' => $fileName,
                             ':tipo_arquivo' => $fileType,
                             ':tamanho_arquivo' => $fileSize,
-                            ':caminho_arquivo' => $filePath,
+                            ':caminho_arquivo' => SITE.$dir,
                         ];
                         $db->execute_non_query($fileInsertSql, $params);
                         $filePaths[] = $filePath;

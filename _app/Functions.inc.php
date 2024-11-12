@@ -29,6 +29,16 @@ function Get()
     return (object)$queryParams;
 }
 
+function Session()
+{
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
+
+    return (object) $_SESSION;
+}
+
+
 function verify_post_method()
 {
     if ($_SERVER['REQUEST_METHOD'] != "POST") echo json_encode(["error" => "invalid_method"]);
