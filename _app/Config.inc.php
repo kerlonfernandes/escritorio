@@ -44,5 +44,5 @@ define('FROM_EMAIL', $mail_conf['FROM_EMAIL']);
 
 $BASE_URL = "https://" . $_SERVER['SERVER_NAME'] . dirname($_SERVER['REQUEST_URI'] . "?") . "/";
 
-define("SITE", "https://" . $_SERVER['SERVER_NAME']);
+define("SITE", "https://" . $_SERVER['SERVER_NAME'] . "/escritorio");
 
