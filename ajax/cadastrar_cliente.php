@@ -41,8 +41,8 @@ if (empty($post->nome_completo) || empty($post->data_nascimento) || empty($post-
 $fundacaoStr = is_array($post->fundacao) ? implode(",", $post->fundacao) : $post->fundacao;
 
 try {
-    $clienteInsertSql = "INSERT INTO clientes (user_id, nome, estado_civil, genero, idade, numero_cliente, cpf, telefone, email, senha_portal, fundacao, data_nascimento)
-                         VALUES (:user_id, :nome_completo, :estado_civil, :genero, :idade, :numero_cliente, :cpf, :telefone, :email, :senha_portal, :fundacao, :data_nascimento)";
+    $clienteInsertSql = "INSERT INTO clientes (user_id, nome, estado_civil, genero, idade, cpf, telefone, email, senha_portal, fundacao, data_nascimento)
+                         VALUES (:user_id, :nome_completo, :estado_civil, :genero, :idade, :cpf, :telefone, :email, :senha_portal, :fundacao, :data_nascimento)";
 
     // Parâmetros da consulta
     $params = [
@@ -52,7 +52,6 @@ try {
         ':idade' => $post->idade,
         ':genero' => $post->genero,
         ':estado_civil' => isset($post->estado_civil) ? $post->estado_civil : null,
-        ':numero_cliente' => isset($post->numero_cliente) ? $post->numero_cliente : null,
         ':telefone' => $post->telefone,
         ':email' => isset($post->email) ? $post->email : null,
         ':senha_portal' => isset($post->senha_portal) ? $post->senha_portal : null,
@@ -63,10 +62,13 @@ try {
     $db = new Database(MYSQL_CONFIG);
     $clientResults = $db->execute_non_query($clienteInsertSql, $params);
     if ($clientResults->status != 'success') {
+        print_r($clientResults);
         throw new Exception('Falha ao executar a inserção do cliente.');
     }
 
     $clienteId = $clientResults->last_id;
+
+ 
 } catch (Exception $e) {
     // Captura o erro detalhado e mostra no JSON
     $response['status'] = 'error';
