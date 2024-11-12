@@ -10,7 +10,7 @@ $config_data = file_get_contents(__DIR__."/config.json");
 $config_array = json_decode($config_data, true);
 
 //MYSQL configurations 
-define('MYSQL_CONFIG', $config_array["database_homologation"]);
+define('MYSQL_CONFIG', $config_array["database"]);
 date_default_timezone_set('America/Sao_Paulo');
 
 $dataHoraAtual = new DateTime();
@@ -44,5 +44,5 @@ define('FROM_EMAIL', $mail_conf['FROM_EMAIL']);
 
 $BASE_URL = "https://" . $_SERVER['SERVER_NAME'] . dirname($_SERVER['REQUEST_URI'] . "?") . "/";
 
-define("SITE", "https://" . $_SERVER['SERVER_NAME'] . "/escritorio");
+define("SITE", "https://" . $_SERVER['SERVER_NAME']);
 
