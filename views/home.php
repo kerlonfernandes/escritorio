@@ -28,7 +28,7 @@ $current_page = isset($_GET['page']) ? $_GET['page'] : 'home';
 
     <?php require "views/components/lateral-bar.php"; ?>
 
-    <div class="container-fluid main-content mt-5">
+    <div class="main-content mt-5">
         <main class="ms-sm-auto">
             <?php
             $filePath = "views/pages/{$current_page}.php";

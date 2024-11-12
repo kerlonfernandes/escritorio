@@ -106,7 +106,6 @@ $arquivosResults = $op->database->execute_query('
 
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-12">
             <?php if ($clienteResults->affected_rows > 0): ?>
                 <div class="profile-card">
                     <div class="profile-header">
@@ -242,6 +241,5 @@ $arquivosResults = $op->database->execute_query('
                     </div>
                 </div>
             <?php endif; ?>
-        </div>
     </div>
 </div>
