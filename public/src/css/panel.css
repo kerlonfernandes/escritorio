@@ -1,0 +1,407 @@
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+table,
+th,
+td {
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: rgb(44, 62, 80);
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  text-align: center;
+  vertical-align: middle;
+}
+
+td {
+  font-size: 14px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+tr:nth-child(even) {
+  background-color: rgba(44, 62, 145, 0.1);
+}
+
+tr:hover {
+  background-color: rgba(44, 62, 145, 0.5);
+}
+
+.action-button {
+  padding: 6px 12px;
+  margin: 0 5px;
+  cursor: pointer;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 12px;
+  transition: background-color 0.3s ease;
+}
+
+.action-button.access {
+  background-color: #2980b9;
+}
+
+.action-button.access:hover {
+  background-color: #1c4e7c;
+}
+
+.action-button.delete {
+  background-color: #e74c3c;
+}
+
+.action-button.delete:hover {
+  background-color: #c0392b;
+}
+
+.copy-button {
+  cursor: pointer;
+  color: #2980b9;
+}
+
+.copy-button:hover {
+  color: #1c4e7c;
+}
+
+#filter-container {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+#filter,
+#search {
+  padding: 8px;
+  margin-left: 10px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
+
+#filter {
+  width: 200px;
+}
+
+#search {
+  width: 250px;
+}
+
+#dataTable {
+  border: none;
+}
+
+/* Botão primário */
+.btn-pri {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-pri:hover {
+  background-color: #0056b3;
+}
+
+/* Botão secundário */
+.btn-sec {
+  background-color: #2c3e50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.no-link {
+    text-decoration: none;
+}
+
+.btn-sec:hover {
+  background-color: #34495e;
+}
+
+/* Botão de ação */
+.btn-act {
+  background-color: #1abc9c;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-act:hover {
+  background-color: #16a085;
+}
+
+/* Botão de cancelamento */
+.btn-can {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-can:hover {
+  background-color: #c0392b;
+}
+/* Input padrão */
+.inp-default {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: none;
+  transition: border-color 0.3s ease;
+}
+
+.inp-default:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.25);
+}
+
+/* Input com borda vermelha (erro) */
+.inp-erro {
+  border: 1px solid #e74c3c;
+  border-radius: 5px;
+  padding: 10px;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: none;
+}
+
+.inp-erro:focus {
+  border-color: #e74c3c;
+  box-shadow: 0 0 0 0.2rem rgba(231, 76, 60, 0.25);
+}
+
+/* Input com borda verde (sucesso) */
+.inp-succ {
+  border: 1px solid #2ecc71;
+  border-radius: 5px;
+  padding: 10px;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: none;
+}
+
+.inp-succ:focus {
+  border-color: #2ecc71;
+  box-shadow: 0 0 0 0.2rem rgba(46, 204, 113, 0.25);
+}
+
+/* Select (Caixa de seleção) */
+.sel-default {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  width: 100%;
+  background-color: #fff;
+  transition: border-color 0.3s ease;
+}
+
+.sel-default:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.25);
+}
+/* Caixa de Alerta */
+.alert-box {
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.alert-info {
+  background-color: #eaf7ff;
+  color: #3498db;
+  border: 1px solid #3498db;
+}
+
+.alert-warning {
+  background-color: #fff3cd;
+  color: #e67e22;
+  border: 1px solid #e67e22;
+}
+
+.alert-success {
+  background-color: #d4edda;
+  color: #28a745;
+  border: 1px solid #28a745;
+}
+
+.alert-danger {
+  background-color: #f8d7da;
+  color: #dc3545;
+  border: 1px solid #dc3545;
+}
+/* Label */
+.lbl-default {
+  font-weight: bold;
+  color: #2c3e50;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+/* Título de Seção */
+.sec-title {
+  font-weight: bold;
+  color: #007bff;
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+/* Caixa de Alerta */
+.alert-box {
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.alert-info {
+  background-color: #eaf7ff;
+  color: #3498db;
+  border: 1px solid #3498db;
+}
+
+.alert-warning {
+  background-color: #fff3cd;
+  color: #e67e22;
+  border: 1px solid #e67e22;
+}
+
+.alert-success {
+  background-color: #d4edda;
+  color: #28a745;
+  border: 1px solid #28a745;
+}
+
+.alert-danger {
+  background-color: #f8d7da;
+  color: #dc3545;
+  border: 1px solid #dc3545;
+}
+/* Checkbox e Radio Button */
+.chk-label,
+.rad-label {
+  font-size: 14px;
+  color: #2c3e50;
+}
+
+.chk-input,
+.rad-input {
+  margin-right: 10px;
+}
+/* Parágrafo */
+.txt-p {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #2c3e50;
+  margin-bottom: 15px;
+}
+
+/* Texto de aviso */
+.txt-warning {
+  color: #e67e22;
+}
+
+.txt-success {
+  color: #28a745;
+}
+
+.txt-info {
+  color: #3498db;
+}
+
+.txt-danger {
+  color: #dc3545;
+}
+
+/* Spinner de Carregamento */
+.spinner-load {
+  width: 3rem;
+  height: 3rem;
+  border: 4px solid #007bff;
+  border-radius: 50%;
+  border-top-color: transparent;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Formulário */
+.form-grp {
+  margin-bottom: 15px;
+}
+
+.form-cont {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #fff;
+  width: 100%;
+}
+
+.form-cont:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.25);
+}
+
+/* Formulário Inline */
+.form-grp-inline {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.form-grp-inline .form-cont {
+  flex: 1;
+  min-width: 150px;
+}
+
+.form-grp-inline .form-cont-short {
+  flex: 0 0 120px;
+}
+/* Estilo para o botão Cadastrar Cliente */
+.cadastrar-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 12px 24px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: auto;
+}
+
+.cadastrar-btn:hover {
+  background-color: #0056b3;
+}
+
+.cadastrar-btn:active {
+  background-color: #004085;
+}
+

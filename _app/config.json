@@ -1,0 +1,23 @@
+{
+  "database_homologation": {
+    "host": "localhost",
+    "database": "escritorio_db",
+    "username": "root",
+    "password": ""
+  },
+
+  "database": {
+    "host": "localhost",
+    "database": "",
+    "username": "",
+    "password": ""
+  },
+  "email": {
+    "MAILUSER": "",
+    "MAILPASS": "",
+    "MAILPORT": "",
+    "MAILHOST": "",
+    "FROM_NAME": "",
+    "FROM_EMAIL": ""
+  }
+}
