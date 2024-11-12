@@ -62,7 +62,6 @@ try {
     $db = new Database(MYSQL_CONFIG);
     $clientResults = $db->execute_non_query($clienteInsertSql, $params);
     if ($clientResults->status != 'success') {
-        print_r($clientResults);
         throw new Exception('Falha ao executar a inserção do cliente.');
     }
 
