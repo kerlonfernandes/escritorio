@@ -44,9 +44,6 @@ $(document).ready(function () {
         },
       },
       {
-        data: "id",
-      },
-      {
         data: "nome",
         render: function (data) {
           return (
@@ -120,7 +117,7 @@ $(document).ready(function () {
   });
   $("#dataTable").on("click", ".delete", function () {
     var userId = $(this).data("id");
-    
+
     Swal.fire({
       title: "Tem certeza que deseja deletar o cliente com ID: " + userId,
       text: "Esta ação não pode ser revertida!",
@@ -132,7 +129,6 @@ $(document).ready(function () {
       cancelButtonText: "Não",
     }).then((result) => {
       if (result.isConfirmed) {
-
         $.ajax({
           url: "ajax/deletar_cliente.php",
           type: "POST",
@@ -145,7 +141,7 @@ $(document).ready(function () {
               Swal.fire({
                 title: response.title,
                 text: response.message,
-                icon: response.status
+                icon: response.status,
               });
               $("#dataTable")
                 .DataTable()
@@ -157,11 +153,11 @@ $(document).ready(function () {
             }
           },
           error: function (xhr, status, error) {
-            alert("Houve um erro ao tentar excluir o usuário. Tente novamente.");
+            alert(
+              "Houve um erro ao tentar excluir o usuário. Tente novamente."
+            );
           },
         });
-
-        
       }
     });
   });
@@ -169,5 +165,4 @@ $(document).ready(function () {
   $("#search").on("keyup", function () {
     table.ajax.reload();
   });
-
 });

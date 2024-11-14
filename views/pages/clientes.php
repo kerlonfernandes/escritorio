@@ -5,7 +5,6 @@
             <option value="nome">Nome</option>
             <option value="cpf">CPF</option>
             <option value="telefone">Telefone</option>
-            <option value="id">ID</option>
         </select>
         <input type="text" id="search" placeholder="Digite para pesquisar...">
     </div>
@@ -16,7 +15,6 @@
         <thead>
             <tr>
                 <th>Ações</th>
-                <th>Índice</th>
                 <th>Nome</th>
                 <th>CPF</th>
                 <th>Número</th>
