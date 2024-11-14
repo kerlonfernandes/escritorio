@@ -77,6 +77,12 @@
                                 <input type="text" class="form-control cpf" name="cpf" maxlength="14" id="cpf" required>
                             </div>
                         </div>
+                        <div class="col-md-6">
+                            <div class="form-grp">
+                                <label class="lbl-default">RG</label>
+                                <input type="text" class="form-control rg" name="rg" maxlength="11" id="rg">
+                            </div>
+                        </div>
                     </div>
 
                     <div class="row mt-3">

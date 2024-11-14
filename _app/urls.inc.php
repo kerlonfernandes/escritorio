@@ -9,4 +9,5 @@ define('ASSETS', SRC.'/assets');
 // intern urls
 define('APP', SITE."/app");
 define('UPLOAD', APP.'/uploads');
+define('PDF', UPLOAD."/pdf");
 

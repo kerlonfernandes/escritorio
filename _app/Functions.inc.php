@@ -38,6 +38,9 @@ function Session()
     return (object) $_SESSION;
 }
 
+function header_json() {
+    header('Content-Type: application/json');
+}
 
 function verify_post_method()
 {
