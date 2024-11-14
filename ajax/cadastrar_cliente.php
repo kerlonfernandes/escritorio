@@ -67,8 +67,6 @@ try {
     }
 
     $clienteId = $clientResults->last_id;
-
- 
 } catch (Exception $e) {
     // Captura o erro detalhado e mostra no JSON
     $response['status'] = 'error';
@@ -212,7 +210,6 @@ try {
     $response['cliente_id'] = $clienteId;
     $response['debug'] = 'Cliente e arquivo(s) cadastrados com sucesso.';
     echo json_encode($response);
-
 } catch (Exception $e) {
     // Captura o erro detalhado e mostra no JSON
     $response['status'] = 'error';

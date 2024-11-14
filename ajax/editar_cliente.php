@@ -146,7 +146,7 @@ try {
     }
 
     $response['status'] = 'success';
-    $response['message'] = 'Dados do cliente e arquivos atualizados com sucesso!';
+    $response['message'] = 'Dados do cliente atualizados com sucesso!';
     echo json_encode($response);
 } catch (Exception $e) {
     $response['status'] = 'error';

@@ -49,6 +49,7 @@ function toggleEdit() {
     });
     toggleButton.innerText = "Salvar";
   } else {
+
     const formData = new FormData(form);
     $.ajax({
       url: "ajax/editar_cliente.php",
