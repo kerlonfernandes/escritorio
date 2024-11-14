@@ -13,6 +13,8 @@ require "../classes/Database.inc.php";  // Classe de conexão com o banco
 use Midspace\Database;
 use HelpersClass\SupAid;
 
+header_json();
+
 $helpers = new SupAid();
 
 // Verificar se o usuário está autenticado
@@ -60,6 +62,8 @@ if (isset($post->clienteId)) {
         if ($result->status == 'success') {
             $response['status'] = 'success';
             $response['message'] = 'Cliente e dados relacionados excluídos com sucesso.';
+            $response['title'] = 'Sucesso!';
+
         } else {
             throw new Exception('Falha ao excluir o cliente.');
         }

@@ -154,4 +154,5 @@ $(document).ready(function () {
   $("#search").on("keyup", function () {
     table.ajax.reload();
   });
+
 });

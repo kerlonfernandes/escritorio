@@ -41,8 +41,8 @@ if (empty($post->nome_completo) || empty($post->data_nascimento) || empty($post-
 $fundacaoStr = is_array($post->fundacao) ? implode(",", $post->fundacao) : $post->fundacao;
 
 try {
-    $clienteInsertSql = "INSERT INTO clientes (user_id, nome, estado_civil, genero, idade, cpf, telefone, email, senha_portal, fundacao, data_nascimento)
-                         VALUES (:user_id, :nome_completo, :estado_civil, :genero, :idade, :cpf, :telefone, :email, :senha_portal, :fundacao, :data_nascimento)";
+    $clienteInsertSql = "INSERT INTO clientes (user_id, nome, estado_civil, genero, idade, cpf, rg, telefone, email, senha_portal, fundacao, data_nascimento)
+                         VALUES (:user_id, :nome_completo, :estado_civil, :genero, :idade, :cpf, :rg, :telefone, :email, :senha_portal, :fundacao, :data_nascimento)";
 
     // Parâmetros da consulta
     $params = [
@@ -57,6 +57,7 @@ try {
         ':senha_portal' => isset($post->senha_portal) ? $post->senha_portal : null,
         ':fundacao' => isset($fundacaoStr) ?  $fundacaoStr : null,
         ':cpf' => isset($post->cpf) ? $post->cpf : null,
+        ':rg' => isset($post->rg) ? $post->rg : null
     ];
 
     $db = new Database(MYSQL_CONFIG);
@@ -77,7 +78,6 @@ try {
     return;
 }
 
-// Tentar realizar a inserção do endereço
 try {
     $enderecoInsertSql = "INSERT INTO enderecos_clientes (cliente_id, rua, numero, complemento, bairro, cidade, estado, cep)
                           VALUES (:cliente_id, :rua, :numero, :complemento, :bairro, :cidade, :estado, :cep)";
@@ -104,7 +104,6 @@ try {
     return;
 }
 
-// Agora, o upload do(s) arquivo(s)
 try {
     $documentos = isset($_FILES['documentos']) && is_array($_FILES['documentos']['error']) ? $_FILES['documentos'] : null;
 
