@@ -16,12 +16,11 @@ document.addEventListener("DOMContentLoaded", function () {
     },
   });
 
-  // Evento de clique para o botão de envio
   $("#send-btn").on("click", function (e) {
     e.preventDefault(); // Impede o envio padrão do formulário
-
+  
     let valid = true;
-
+  
     // Validação de campos obrigatórios em cada etapa do formulário
     $("#client-form .tab-pane").each(function (index, tab) {
       $(tab)
@@ -35,35 +34,79 @@ document.addEventListener("DOMContentLoaded", function () {
         });
       if (!valid) return false; // Para a execução se algum campo estiver faltando
     });
-
-    // Se o formulário for válido, envia os dados via AJAX
+  
     if (valid) {
-      var formData = new FormData($("#client-form")[0]); // Cria um FormData para manipulação dos dados do formulário
-
-      $.ajax({
-        url: "ajax/cadastrar_cliente.php", // URL de destino
-        type: "POST",
-        data: formData,
-        processData: false,
-        contentType: false,
-        success: function (response) {
-          var res = JSON.parse(response);
-          if (res.status === "success") {
-            alert(res.message); // Exibe a mensagem de sucesso
-            $("#client-form")[0].reset(); // Limpa o formulário
-            $("#smartwizard").smartWizard("reset"); // Reseta o SmartWizard
-          } else {
-            alert("Erro: " + res.message); // Exibe a mensagem de erro
-          }
-        },
-        error: function () {
-          alert("Ocorreu um erro ao enviar o formulário.");
-        },
+      // Exibir confirmação
+      Swal.fire({
+        title: "Confirmar envio",
+        text: "Você deseja realmente enviar o formulário?",
+        icon: "question",
+        showCancelButton: true,
+        confirmButtonText: "Sim",
+        cancelButtonText: "Não"
+      }).then((result) => {
+        if (result.isConfirmed) {
+          // Enviar dados via AJAX após confirmação
+          var formData = new FormData($("#client-form")[0]);
+  
+          Swal.fire({
+            title: "Enviando...",
+            text: "Aguarde enquanto enviamos os dados.",
+            showConfirmButton: false,
+            allowOutsideClick: false,
+            didOpen: () => {
+              Swal.showLoading();
+            }
+          });
+  
+          $.ajax({
+            url: "ajax/cadastrar_cliente.php", // URL de destino
+            type: "POST",
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function (response) {
+              var res = JSON.parse(response);
+              if (res.status === "success") {
+                Swal.fire({
+                  title: "Sucesso!",
+                  text: res.message,
+                  icon: "success",
+                  confirmButtonText: "OK"
+                }).then(() => {
+                  $("#client-form")[0].reset(); // Limpa o formulário
+                  $("#smartwizard").smartWizard("reset"); // Reseta o SmartWizard
+                });
+              } else {
+                Swal.fire({
+                  title: "Erro",
+                  text: res.message,
+                  icon: "error",
+                  confirmButtonText: "OK"
+                });
+              }
+            },
+            error: function () {
+              Swal.fire({
+                title: "Erro",
+                text: "Ocorreu um erro ao enviar o formulário.",
+                icon: "error",
+                confirmButtonText: "OK"
+              });
+            }
+          });
+        }
       });
     } else {
-      alert("Por favor, preencha todos os campos obrigatórios.");
+      Swal.fire({
+        title: "Campos obrigatórios",
+        text: "Por favor, preencha todos os campos obrigatórios.",
+        icon: "warning",
+        confirmButtonText: "OK"
+      });
     }
   });
+  
 
   // Função para adicionar campos extras ao formulário
   window.addField = function (type) {

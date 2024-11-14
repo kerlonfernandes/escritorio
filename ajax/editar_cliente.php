@@ -10,6 +10,7 @@ require "../classes/Helpers.inc.php";
 require "../_app/Functions.inc.php";
 require "../classes/Database.inc.php";
 header_json();
+
 use Midspace\Database;
 use HelpersClass\SupAid;
 
@@ -64,7 +65,6 @@ try {
 
     $db = new Database(MYSQL_CONFIG);
     $update = $db->execute_non_query($clienteUpdateSql, $params);
-
 } catch (Exception $e) {
     $response['status'] = 'error';
     $response['message'] = 'Erro ao atualizar dados do cliente.';
@@ -154,5 +154,3 @@ try {
     $response['debug'] = $e->getMessage();
     echo json_encode($response);
 }
-
-?>

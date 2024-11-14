@@ -120,7 +120,7 @@ $(document).ready(function () {
   });
   $("#dataTable").on("click", ".delete", function () {
     var userId = $(this).data("id");
-
+    
     Swal.fire({
       title: "Tem certeza que deseja deletar o cliente com ID: " + userId,
       text: "Esta ação não pode ser revertida!",
