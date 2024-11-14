@@ -150,7 +150,7 @@ try {
                             ':nome_arquivo' => $fileName,
                             ':tipo_arquivo' => $fileType,
                             ':tamanho_arquivo' => $fileSize,
-                            ':caminho_arquivo' => SITE.$dir,
+                            ':caminho_arquivo' => $filePath,
                         ];
                         $db->execute_non_query($fileInsertSql, $params);
                         $filePaths[] = $filePath;
