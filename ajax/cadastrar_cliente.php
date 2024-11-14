@@ -127,8 +127,12 @@ try {
                         throw new Exception('O arquivo é muito grande. O tamanho máximo permitido é 5MB.');
                     }
 
-                    $dir = '/app/uploads/pdf/';
-                    $uploadDir = "..". $dir;
+                    $uploadDir = "../app/uploads/pdf/";
+                    if (!is_dir($uploadDir)) {
+                        mkdir($uploadDir, 0777, true);
+                    }
+
+                    $filePath = $uploadDir . uniqid() . "_" . basename($fileName);
                     // Garantir que o diretório exista
                     if (!is_dir($uploadDir)) {
                         mkdir($uploadDir, 0777, true);
