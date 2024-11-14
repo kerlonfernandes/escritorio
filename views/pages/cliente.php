@@ -165,8 +165,8 @@ $arquivosResults = $op->database->execute_query('
                                 <select class="form-select" id="genero" name="genero" disabled>
                                     <option selected value="<?= strtoupper($cliente->genero) ?>"><?= ($cliente->genero) ?></option>
                                     <option value="masculino">MASCULINO</option>
-                                    <option value="F">FEMININO</option>
-                                    <option value="O">OUTRO</option>
+                                    <option value="feminino">FEMININO</option>
+                                    <option value="outro">OUTRO</option>
                                 </select>
                             </div>
                         </div>
