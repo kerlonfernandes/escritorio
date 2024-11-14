@@ -260,8 +260,8 @@ $arquivosResults = $op->database->execute_query('
                         </div>
 
                         <div class="form-group mt-3">
-                            <label for="novo_arquivo"><i class="fa-solid fa-upload"></i> Adicionar novo arquivo:</label>
-                            <input type="file" class="form-control" id="novo_arquivo" name="novo_arquivo[]" multiple>
+                            <label for="documentos"><i class="fa-solid fa-upload"></i> Adicionar novo arquivo:</label>
+                            <input type="file" class="form-control" id="documentos" name="documentos[]" multiple>
                         </div>
 
                         <div class="d-flex justify-content-end m-3">

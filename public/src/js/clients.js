@@ -120,35 +120,50 @@ $(document).ready(function () {
   });
   $("#dataTable").on("click", ".delete", function () {
     var userId = $(this).data("id");
-    var confirmation = confirm(
-      "Tem certeza que deseja deletar o usuário com ID: " + userId + "?"
-    );
+    
+    Swal.fire({
+      title: "Tem certeza que deseja deletar o cliente com ID: " + userId,
+      text: "Esta ação não pode ser revertida!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Sim, quero deletar!",
+      cancelButtonText: "Não",
+    }).then((result) => {
+      if (result.isConfirmed) {
 
-    if (confirmation) {
-      $.ajax({
-        url: "ajax/deletar_cliente.php", // Substitua pelo caminho do seu script PHP de exclusão
-        type: "POST",
-        dataType: "json",
-        data: {
-          clienteId: userId,
-        },
-        success: function (response) {
-          if (response.status === "success") {
-            alert("Usuário com ID " + userId + " deletado com sucesso.");
-            $("#dataTable")
-              .DataTable()
-              .row($(this).closest("tr"))
-              .remove()
-              .draw();
-          } else {
-            alert("Erro ao excluir o usuário. " + response.message);
-          }
-        },
-        error: function (xhr, status, error) {
-          alert("Houve um erro ao tentar excluir o usuário. Tente novamente.");
-        },
-      });
-    }
+        $.ajax({
+          url: "ajax/deletar_cliente.php",
+          type: "POST",
+          dataType: "json",
+          data: {
+            clienteId: userId,
+          },
+          success: function (response) {
+            if (response.status === "success") {
+              Swal.fire({
+                title: response.title,
+                text: response.message,
+                icon: response.status
+              });
+              $("#dataTable")
+                .DataTable()
+                .row($(this).closest("tr"))
+                .remove()
+                .draw();
+            } else {
+              alert("Erro ao excluir o usuário. " + response.message);
+            }
+          },
+          error: function (xhr, status, error) {
+            alert("Houve um erro ao tentar excluir o usuário. Tente novamente.");
+          },
+        });
+
+        
+      }
+    });
   });
 
   $("#search").on("keyup", function () {
