@@ -18,10 +18,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
   $("#send-btn").on("click", function (e) {
     e.preventDefault(); // Impede o envio padrão do formulário
-  
+
     let valid = true;
-  
-    // Validação de campos obrigatórios em cada etapa do formulário
+
     $("#client-form .tab-pane").each(function (index, tab) {
       $(tab)
         .find("input[required], select[required]")
@@ -34,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
       if (!valid) return false; // Para a execução se algum campo estiver faltando
     });
-  
+
     if (valid) {
       // Exibir confirmação
       Swal.fire({
@@ -43,12 +42,12 @@ document.addEventListener("DOMContentLoaded", function () {
         icon: "question",
         showCancelButton: true,
         confirmButtonText: "Sim",
-        cancelButtonText: "Não"
+        cancelButtonText: "Não",
       }).then((result) => {
         if (result.isConfirmed) {
           // Enviar dados via AJAX após confirmação
           var formData = new FormData($("#client-form")[0]);
-  
+
           Swal.fire({
             title: "Enviando...",
             text: "Aguarde enquanto enviamos os dados.",
@@ -56,9 +55,9 @@ document.addEventListener("DOMContentLoaded", function () {
             allowOutsideClick: false,
             didOpen: () => {
               Swal.showLoading();
-            }
+            },
           });
-  
+
           $.ajax({
             url: "ajax/cadastrar_cliente.php", // URL de destino
             type: "POST",
@@ -72,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function () {
                   title: "Sucesso!",
                   text: res.message,
                   icon: "success",
-                  confirmButtonText: "OK"
+                  confirmButtonText: "OK",
                 }).then(() => {
                   $("#client-form")[0].reset(); // Limpa o formulário
                   $("#smartwizard").smartWizard("reset"); // Reseta o SmartWizard
@@ -82,7 +81,7 @@ document.addEventListener("DOMContentLoaded", function () {
                   title: "Erro",
                   text: res.message,
                   icon: "error",
-                  confirmButtonText: "OK"
+                  confirmButtonText: "OK",
                 });
               }
             },
@@ -91,9 +90,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 title: "Erro",
                 text: "Ocorreu um erro ao enviar o formulário.",
                 icon: "error",
-                confirmButtonText: "OK"
+                confirmButtonText: "OK",
               });
-            }
+            },
           });
         }
       });
@@ -102,11 +101,10 @@ document.addEventListener("DOMContentLoaded", function () {
         title: "Campos obrigatórios",
         text: "Por favor, preencha todos os campos obrigatórios.",
         icon: "warning",
-        confirmButtonText: "OK"
+        confirmButtonText: "OK",
       });
     }
   });
-  
 
   // Função para adicionar campos extras ao formulário
   window.addField = function (type) {

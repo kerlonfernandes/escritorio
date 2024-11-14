@@ -114,6 +114,9 @@ $arquivosResults = $op->database->execute_query('
                 </div>
                 <div class="profile-info mt-4">
                     <form class="edit-user" id="userForm">
+                    <div class="d-flex justify-content-end m-3">
+                            <button type="button" class="btn btn-primary" id="toggleEditButton" onclick="toggleEdit()">Editar</button>
+                        </div>
                         <input type="hidden" name="id" value="<?= $get->id ?>">
 
                         <div class="section-title">Informações Pessoais</div>
@@ -262,10 +265,6 @@ $arquivosResults = $op->database->execute_query('
                         <div class="form-group mt-3">
                             <label for="documentos"><i class="fa-solid fa-upload"></i> Adicionar novo arquivo:</label>
                             <input type="file" class="form-control" id="documentos" name="documentos[]" multiple>
-                        </div>
-
-                        <div class="d-flex justify-content-end m-3">
-                            <button type="button" class="btn btn-primary" id="toggleEditButton" onclick="toggleEdit()">Editar</button>
                         </div>
                     </form>
 
