@@ -148,8 +148,7 @@ body {
 .profile-card {
   background-color: #fff;
   border-radius: 12px;
-  padding: 20px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 50px !important;
   margin-top: 50px;
   width: 100%;
   /* Faz o formulário ocupar toda a largura da página */

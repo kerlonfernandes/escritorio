@@ -158,7 +158,7 @@ $arquivosResults = $op->database->execute_query('
                             </div>
                             <div class="form-group">
                                 <label for="estado"><i class="fa-solid fa-globe-americas"></i> Estado:</label>
-                                <select class="form-select" id="estado" name="estado" disabled>
+                                <select class="form-select" id="uf" name="estado" disabled>
                                     <option value="<?= $cliente->estado ?>" selected><?= $cliente->estado ?></option>
                                     <?php if ($estados->affected_rows > 0): ?>
                                         <?php foreach ($estados->results as $estado): ?>
@@ -232,7 +232,7 @@ $arquivosResults = $op->database->execute_query('
                                 <label for="cidade"><i class="fa-solid fa-building"></i> Cidade:</label>
                                 <input type="text" class="form-control" id="cidade" name="cidade" value="<?= isset($cliente->cidade) ? $cliente->cidade : "Sem cidade cadastrada" ?>" placeholder="Digite a cidade" readonly>
                             </div>
-                            
+
                             <div class="form-group">
                                 <label for="cep"><i class="fa-solid fa-map-pin"></i> CEP:</label>
                                 <input type="text" class="form-control form-control-short" id="cep" name="cep" value="<?= isset($cliente->cep) ? $cliente->cep : "Sem cep cadastrado" ?>" placeholder="Digite o CEP" readonly>
