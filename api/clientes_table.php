@@ -43,7 +43,7 @@ if ($filterField && $searchTerm) {
     $parameters[':searchTerm'] = '%' . $searchTerm . '%';
 }
 
-$selectColumns = "clientes.*, clientes.id AS client_id, enderecos_clientes.*";
+$selectColumns = "clientes.*, enderecos_clientes.cidade";
 
 $sql = "SELECT $selectColumns FROM $table 
         LEFT JOIN enderecos_clientes 
