@@ -31,7 +31,7 @@ $(document).ready(function () {
     },
     columns: [
       {
-        data: "id",
+        data: "client_id",
         render: function (data) {
           return (
             '<button class="action-button access" data-id="' +
