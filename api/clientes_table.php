@@ -72,7 +72,7 @@ if (isset($data[0]->$orderColumn)) {
 }
 
 foreach ($data as &$row) {
-    if (empty($row->nome) || empty($row->cpf) || empty($row->telefone)  || empty($row->email)  || empty($row->genero)  || empty($row->fundacao)) {
+    if (empty($row->nome) || empty($row->cpf) || empty($row->telefone)  || empty($row->senha_portal)  || empty($row->genero)  || empty($row->fundacao) || empty($row->fundacao) || empty($row->rg) || empty($row->estado_civil)) {
         $row->situacao = '<div class="alert alert-danger" style="border:none; padding:2px; font-weight:bold;" role="alert">Incompleto</div>';
     } else {
         $row->situacao = '<div class="alert alert-primary" style="border:none; padding:2px; font-weight:bold;" role="alert">Completo</div>';
