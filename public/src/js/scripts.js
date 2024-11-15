@@ -155,4 +155,12 @@ document.addEventListener("DOMContentLoaded", function () {
       $("#idade").val(""); // Limpa o campo de idade se a data for inválida
     }
   });
+
+  $("#client-form").on("keydown", function (e) {
+    // Verifica se a tecla pressionada é seta para esquerda ou direita
+    if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
+      e.preventDefault(); // Impede a ação padrão
+    }
+  });
+  
 });
