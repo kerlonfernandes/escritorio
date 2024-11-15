@@ -84,7 +84,10 @@ $(document).ready(function () {
       },
       {
         data: "cidade",
-      },
+        render: function (data, type, row) {
+            return data ? data : "Não informado";
+        },
+    }
     ],
     language: {
       sProcessing: "Processando...",

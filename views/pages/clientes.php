@@ -21,7 +21,6 @@
                 <th>CPF</th>
                 <th>Número</th>
                 <th>Situação</th>
-                <th>Cidade</th>
             </tr>
         </thead>
         <tbody>
