@@ -52,6 +52,7 @@ $sql = "SELECT $selectColumns FROM $table
 
 $result = $op->database->execute_query($sql, $parameters);
 
+print_r($result);
 
 if ($result === false || !isset($result->status) || $result->status !== 'success') {
     echo json_encode([
