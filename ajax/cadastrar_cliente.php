@@ -121,7 +121,7 @@ try {
                     if ($fileType != 'application/pdf') {
                         throw new Exception('Arquivo deve ser em formato PDF.');
                     }
-                    if ($fileSize > 50000000) { // Limitar o tamanho do arquivo para 5MB
+                    if ($fileSize > 50000000) { // Limitar o tamanho do arquivo para 50MB
                         throw new Exception('O arquivo é muito grande. O tamanho máximo permitido é 50MB.');
                     }
 
@@ -171,8 +171,8 @@ try {
                 if ($fileType != 'application/pdf') {
                     throw new Exception('Arquivo deve ser em formato PDF.');
                 }
-                if ($fileSize > 5000000) { // Limitar o tamanho do arquivo para 5MB
-                    throw new Exception('O arquivo é muito grande. O tamanho máximo permitido é 5MB.');
+                if ($fileSize > 50000000) { // Limitar o tamanho do arquivo para 5MB
+                    throw new Exception('O arquivo é muito grande. O tamanho máximo permitido é 50MB.');
                 }
 
                 $uploadDir = "../app/uploads/pdf/";
