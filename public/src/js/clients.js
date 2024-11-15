@@ -133,7 +133,7 @@ $(document).ready(function () {
     var userId = $(this).data("id");
 
     Swal.fire({
-      title: "Tem certeza que deseja deletar o cliente com ID: " + userId,
+      title: "Tem certeza que deseja deletar este cliente?",
       text: "Esta ação não pode ser revertida!",
       icon: "warning",
       showCancelButton: true,

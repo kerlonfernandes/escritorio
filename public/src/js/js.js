@@ -78,3 +78,30 @@ function toggleEdit() {
     });
   }
 }
+
+$(document).on("keyup", ".cep", function () {
+    let cep = $(this).val().replace(/\D/g, "");
+
+    if (cep != "" && cep.length == 8) {
+      $.ajax({
+        url: "https://viacep.com.br/ws/" + cep + "/json/",
+        dataType: "json",
+        type: "GET",
+        success: function (data) {
+          if (!("erro" in data)) {
+            $("#logradouro").val(data.logradouro);
+            $("#bairro").val(data.bairro);
+            $("#cidade").val(data.localidade);
+            $("#estado").val(data.uf);
+          } else {
+            alert("CEP não encontrado.");
+          }
+        },
+        error: function () {
+          alert("Erro ao buscar CEP. Por favor, tente novamente mais tarde.");
+        },
+      });
+    } else {
+      //   alert("Formato de CEP inválido.");
+    }
+  });

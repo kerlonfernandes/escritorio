@@ -69,7 +69,6 @@
                         </div>
                     </div>
 
-                    <!-- Campo de CPF adicionado -->
                     <div class="row mt-3">
                         <div class="col-md-6">
                             <div class="form-grp">
@@ -80,7 +79,7 @@
                         <div class="col-md-6">
                             <div class="form-grp">
                                 <label class="lbl-default">RG</label>
-                                <input type="text" class="form-control rg" name="rg" maxlength="11" id="rg">
+                                <input type="text" class="form-control rg" name="rg" id="rg">
                             </div>
                         </div>
                     </div>
@@ -100,7 +99,6 @@
                             </div>
                         </div>
                     </div>
-
 
                     <div class="row mt-3">
                         <div class="col-md-6">
