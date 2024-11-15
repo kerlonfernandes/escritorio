@@ -43,10 +43,15 @@ if ($filterField && $searchTerm) {
     $parameters[':searchTerm'] = '%' . $searchTerm . '%';
 }
 
-$selectColumns = "*";
+$selectColumns = "clientes.*, enderecos_clientes.*";
 
-$sql = "SELECT $selectColumns FROM $table WHERE $whereClause";
-$result = $op->select($selectColumns, $table, $whereClause, $parameters);
+$sql = "SELECT $selectColumns FROM $table 
+        LEFT JOIN enderecos_clientes 
+        ON enderecos_clientes.cliente_id = clientes.id 
+        WHERE $whereClause";
+
+$result = $op->database->execute_query($sql, $parameters);
+
 
 if ($result === false || !isset($result->status) || $result->status !== 'success') {
     echo json_encode([
@@ -72,7 +77,7 @@ if (isset($data[0]->$orderColumn)) {
 }
 
 foreach ($data as &$row) {
-    if (empty($row->nome) || empty($row->cpf) || empty($row->telefone)  || empty($row->senha_portal)  || empty($row->genero)  || empty($row->fundacao) || empty($row->fundacao) || empty($row->rg) || empty($row->estado_civil)) {
+    if (empty($row->nome) || empty($row->cpf) || empty($row->telefone)  || empty($row->senha_portal)  || empty($row->genero)  || empty($row->fundacao) || empty($row->fundacao) || empty($row->rg) || empty($row->estado_civil) || empty($row->cidade)) {
         $row->situacao = '<div class="alert alert-danger" style="border:none; padding:2px; font-weight:bold;" role="alert">Incompleto</div>';
     } else {
         $row->situacao = '<div class="alert alert-primary" style="border:none; padding:2px; font-weight:bold;" role="alert">Completo</div>';
