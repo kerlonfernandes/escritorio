@@ -111,7 +111,7 @@ try {
                 if ($fileType != 'application/pdf') {
                     throw new Exception("Arquivo deve ser em formato PDF. Erro no arquivo $fileName");
                 }
-                if ($fileSize > 5000000) {
+                if ($fileSize > 100000000) {
                     throw new Exception("O arquivo é muito grande. Tamanho máximo permitido é 5MB. Erro no arquivo $fileName");
                 }
 
