@@ -20,6 +20,7 @@
                 <th>Nome</th>
                 <th>CPF</th>
                 <th>Número</th>
+                <th>Cidade</th>
                 <th>Situação</th>
             </tr>
         </thead>

@@ -80,13 +80,13 @@ $(document).ready(function () {
         },
       },
       {
-        data: "situacao",
-      },
-      {
         data: "cidade",
         render: function (data, type, row) {
             return data ? data : "Não informado";
         },
+    },
+    {
+      data: "situacao",
     }
     ],
     language: {
