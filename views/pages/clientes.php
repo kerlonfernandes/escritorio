@@ -5,6 +5,8 @@
             <option value="nome">Nome</option>
             <option value="cpf">CPF</option>
             <option value="telefone">Telefone</option>
+            <option value="cidade">Cidade</option>
+
         </select>
         <input type="text" id="search" placeholder="Digite para pesquisar...">
     </div>
@@ -19,6 +21,7 @@
                 <th>CPF</th>
                 <th>Número</th>
                 <th>Situação</th>
+                <th>Cidade</th>
             </tr>
         </thead>
         <tbody>
