@@ -82,6 +82,9 @@ $(document).ready(function () {
       {
         data: "situacao",
       },
+      {
+        data: "cidade",
+      },
     ],
     language: {
       sProcessing: "Processando...",
