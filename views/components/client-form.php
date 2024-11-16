@@ -82,6 +82,18 @@
                                 <input type="text" class="form-control rg" name="rg" id="rg">
                             </div>
                         </div>
+                        <div class="col-md-6">
+                            <div class="form-grp">
+                                <label class="lbl-default">Orgão Emissor</label>
+                                <input type="text" class="form-control orgao_emissor" name="orgao_emissor" id="orgao_emissor">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-grp">
+                                <label class="lbl-default">UF</label>
+                                <input type="text" class="form-control orgao_emissor" name="uf_rg" id="uf_rg">
+                            </div>
+                        </div>
                     </div>
 
                     <div class="row mt-3">

@@ -157,6 +157,14 @@ $arquivosResults = $op->database->execute_query('
                                 <input type="text" class="form-control rg" id="rg" name="rg" value="<?= isset($cliente->rg) ? $cliente->rg : "Sem rg cadastrado" ?>" placeholder="Digite o RG" readonly>
                             </div>
                             <div class="form-group">
+                                <label for="rg"><i class="fa-solid fa-id-card"></i> Orgão Emissor:</label>
+                                <input type="text" class="form-control orgao_emissor" id="orgao_emissor" name="orgao_emissor" value="<?= isset($cliente->orgao_emissor) ? $cliente->orgao_emissor : "Sem Orgão Emissor" ?>" placeholder="Digite o Orgão emissor" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label for="rg"><i class="fa-solid fa-id-card"></i> UF:</label>
+                                <input type="text" class="form-control uf_rg" id="uf_rg" name="uf_rg" value="<?= isset($cliente->uf_rg) ? $cliente->uf_rg : "Sem UF cadastrado" ?>" placeholder="Digite o RG" readonly>
+                            </div>
+                            <div class="form-group">
                                 <label for="estado"><i class="fa-solid fa-globe-americas"></i> Estado:</label>
                                 <select class="form-select" id="uf" name="estado" disabled>
                                     <option value="<?= $cliente->estado ?>" selected><?= $cliente->estado ?></option>
