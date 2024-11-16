@@ -71,6 +71,7 @@ function toggleEdit() {
           }
         });
         toggleButton.innerText = "Editar";
+        $("input[name='documentos[]']").val('');
       },
       error: function (error) {
         alert("Erro ao salvar dados!");
