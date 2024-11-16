@@ -43,7 +43,7 @@ $fundacaoStr = is_array($post->fundacao) ? implode(",", $post->fundacao) : $post
 
 try {
     $clienteUpdateSql = "UPDATE clientes SET nome = :nome, estado_civil = :estado_civil, genero = :genero, idade = :idade,
-                         cpf = :cpf, rg = :rg, telefone = :telefone, email = :email, senha_portal = :senha_portal, fundacao = :fundacao, data_nascimento = :data_nascimento
+                         cpf = :cpf, rg = :rg, orgao_emissor = :orgao_emissor, uf_rg = :uf_rg, telefone = :telefone, email = :email, senha_portal = :senha_portal, fundacao = :fundacao, data_nascimento = :data_nascimento
                          WHERE id = :cliente_id";
 
     $params = [
@@ -58,6 +58,8 @@ try {
         ':senha_portal' => $post->senha_portal,
         ':data_nascimento' => $post->data_nascimento,
         ':rg' => $post->rg,
+        ':orgao_emissor' => $post->orgao_emissor,
+        ':uf_rg' => $post->uf_rg,
         ':fundacao' => isset($fundacaoStr) ?  $fundacaoStr : null,
 
 
